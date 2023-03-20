@@ -1,21 +1,21 @@
 # terraform_eks_salvar
 
-eks.tf
+**eks.tf**
 In the eks.tf file the code will create the eks cluster with the roles attached to it and the vpc config where I put the private and publick subnet that I have created in network.tf
 
-iam.tf
+**iam.tf**
 In this terraform code I will be creating iam roles and iam policies where I will input them inside the wokernodes.tf that will create instances.
 
-main.tf
+**main.tf**
 Here in main.tf I just put the provider which aws where we use it to deploy the EKS
 
-network.tf
+**network.tf**
 Creating security groups, NAT, NAT gateway,Subnets both public and private, route table and route table association. The NAT is needed because the code will get an error if the private subnet has no NAT gateway and security group with the port 65535 which is a reserved port.
 
-workernodes.tf
+**workernodes.tf**
 Creating 3 instances that will be included in the eks cluster, the instance type is t2.micro and it depends on the policies that I have created in iam.tf file.
 
-WHAT TO DO
+**WHAT TO DO**
 -Download the kubectl cli so that we can see the nodes using cli use the (curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl") command to download the kubectl cli
 
 -To check if kubectl is downloaded use the "echo "$(cat kubectl.sha256)  kubectl" | sha256sum –check" command.
