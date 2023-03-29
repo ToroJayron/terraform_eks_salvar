@@ -5,6 +5,23 @@ In the eks.tf file the code will create the eks cluster with the roles attached 
 
 **iam.tf**
 In this terraform code I will be creating iam roles and iam policies where I will input them inside the wokernodes.tf that will create instances.
+--AmazonEKSClusterPolicy
+---This policy provides Kubernetes the permissions it requires to manage resources on your behalf. Kubernetes requires Ec2:CreateTags permissions to place identifying information on EC2 resources including but not limited to Instances, Security Groups, and Elastic Network Interfaces.
+
+--AmazonEC2ContainerRegistryReadOnly-EKS
+---Provides read-only access to Amazon EC2 Container Registry repositories
+
+--AmazonEKSWorkerNodePolicy
+---This policy allows Amazon EKS worker nodes to connect to Amazon EKS Clusters. 
+
+--AmazonEKS_CNI_Policy
+---This policy provides the Amazon VPC CNI Plugin (amazon-vpc-cni-k8s) the permissions it requires to modify the IP address configuration on your EKS worker nodes. This permission set allows the CNI to list, describe, and modify Elastic Network Interfaces on your behalf.
+
+--AmazonEC2ContainerRegistryReadOnly
+---Provides read-only access to Amazon EC2 Container Registry repositories
+
+--EC2InstanceProfileForImageBuilderECRContainerBuilds
+---Grants full access to Image Builder resources for the role it's attached to, allowing the role to list, describe, create, update, and delete Image Builder resources.
 
 **main.tf**
 Here in main.tf I just put the provider which aws where we use it to deploy the EKS
