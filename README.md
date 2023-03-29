@@ -5,6 +5,7 @@ In the eks.tf file the code will create the eks cluster with the roles attached 
 
 **iam.tf**
 In this terraform code I will be creating iam roles and iam policies where I will input them inside the wokernodes.tf that will create instances.
+
 --AmazonEKSClusterPolicy
 ---This policy provides Kubernetes the permissions it requires to manage resources on your behalf. Kubernetes requires Ec2:CreateTags permissions to place identifying information on EC2 resources including but not limited to Instances, Security Groups, and Elastic Network Interfaces.
 
